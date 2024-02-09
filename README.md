@@ -1,7 +1,4 @@
 # Space Exploration Rover for Agricultural Management and Data Analysis
-
-![Rover Image](insert_image_url_here)
-
 ## Overview
 
 This repository contains the development project for a space exploration rover designed to address challenges in agricultural management and data analysis. The rover integrates advanced technologies in robotics, data science, and telematics to optimize resource management and enhance crop monitoring capabilities in remote or inaccessible agricultural areas.
