@@ -1,0 +1,25 @@
+.card {
+  width: 70%;
+  margin: auto;
+  margin-top: 5rem;
+  position: relative;
+  border-radius: 10px;
+}
+.card .card-text {
+  font-size: 1.6rem;
+  padding: 1rem;
+}
+.card .card-title {
+  font-size: 2rem;
+  padding: 1rem;
+}
+.card .card-header {
+  font-size: 2rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.card .btn {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}

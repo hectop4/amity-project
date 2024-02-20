@@ -71,3 +71,25 @@ a {
 .navbar .nav-item {
   margin-left: 2rem;
 }
+footer {
+  width: 100%;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  align-items: center;
+  justify-content: space-between;
+  left: 0;
+  z-index: 10;
+  margin-bottom: 0.3rem;
+}
+footer .container {
+  width: 50%;
+  max-width: 1600px;
+  padding: 0 2rem;
+}
+.social-media-container {
+  display: flex;
+  font-size: 1rem;
+  gap: 3rem;
+  margin: auto;
+}
