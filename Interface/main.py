@@ -9,7 +9,18 @@ def index():
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    title = 'About'
+    return render_template('about.html',title=title)
+
+@app.route('/contact')
+def contact():
+    title = 'Contact'
+    return render_template('contact.html',title=title)
+
+@app.route('/blog')
+def blog():
+    title = 'Blog'
+    return render_template('blog.html',title=title)
 
 
 if __name__ == "__main__":
