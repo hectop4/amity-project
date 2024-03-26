@@ -1,33 +1,41 @@
 #include "BTS7960.h"
 
-const uint8_t EN = 13;
-const uint8_t L_PWM = 12;
-const uint8_t R_PWM = 14;
+const uint8_t EN1 = 8;
+const uint8_t L_PWM1= 9;
+const uint8_t R_PWM1 = 10;
 
-BTS7960 motorController(EN, L_PWM, R_PWM);
-
+const uint8_t EN2 = 7;
+const uint8_t L_PWM2 = 6;
+const uint8_t R_PWM2 = 5;
+BTS7960 motorController1(EN1, L_PWM1, R_PWM1);
+BTS7960 motorController2(EN2, L_PWM2, R_PWM2);
+int speed =100;
 void setup() 
 {
 }
 
 void loop() 
 {
-  motorController.Enable();
+  motorController1.Enable();
+  motorController2.Enable();
 
-  for(int speed = 0 ; speed < 255; speed+=10)
-  {
-  motorController.TurnLeft(speed);
-  delay(100);
-  }  
 
-  motorController.Stop();
+  motorController1.TurnLeft(speed);
+  motorController2.TurnRight(speed);
+  delay(1000);
   
-  for(int speed = 255 ; speed > 0; speed-=10)
-  {
-  motorController.TurnLeft(speed);
-  delay(100);
-  }  
-  motorController.Stop();
-  motorController.Disable();
+
+  motorController1.Stop();
+  motorController2.Stop();
+  
+
+  motorController1.TurnLeft(speed);
+  motorController2.TurnRight(speed);
+  delay(1000);
+ 
+  motorController1.Stop();
+  motorController2.Stop();
+  motorController1.Disable();
+  motorController2.Disable();
   delay(5000);
 }
