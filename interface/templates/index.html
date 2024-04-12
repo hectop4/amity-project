@@ -20,7 +20,7 @@
   <body>
     <script type="text/javascript">
       $(document).ready(function () {
-        var socket = io.connect("http://10.42.0.230:5000");
+        var socket = io.connect("http://10.42.0.1:5000");
         socket.on("connect", function () {
           socket.send("User Connected");
         });
