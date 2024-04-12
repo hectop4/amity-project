@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rover Interface</title>
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <h1>Rover Interface</h1>
+    <div id="randomNumber">Número aleatorio:</div>
+
+    <script>
+      // Función para actualizar el número aleatorio cada 2 segundos
+      function updateRandomNumber() {
+        fetch("/random") // Hace una solicitud GET a la API /random del servidor
+          .then((response) => response.json()) // Convierte la respuesta a formato JSON
+          .then((data) => {
+            document.getElementById("randomNumber").innerText =
+              "Número aleatorio: " + data.number; // Actualiza el número aleatorio en la interfaz
+          });
+      }
+
+      // Llama a la función updateRandomNumber inicialmente y luego cada 2 segundos
+      updateRandomNumber();
+      setInterval(updateRandomNumber, 2000);
+    </script>
+  </body>
+</html>
