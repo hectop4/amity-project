@@ -1,9 +1,49 @@
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 offset-lg-2">
-        <h3 class="mt-5">Live Streaming</h3>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/style.css')}}"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Amity</h1>
+
+    <div class="dashboard-container">
+      <div class="temperature-container">
+        <h2>Temperature</h2>
+        <p>Temperature: <span id="temperature">{{data["T"]}}</span>°C</p>
+        <div class="chart">
+          <canvas id="temperature-chart"></canvas>
+        </div>
+      </div>
+
+      <div class="humidity-container">
+        <h2>Humidity</h2>
+        <p>Humidity: <span id="humidity">{{data["HU"]}}</span>%</p>
+        <div class="chart">
+          <canvas id="humidity-chart"></canvas>
+        </div>
+      </div>
+
+      <div class="pressure-container">
+        <h2>Pressure</h2>
+        <p>Pressure: <span id="pressure">{{data["P"]}}</span>hPa</p>
+        <div class="chart">
+          <canvas id="pressure-chart"></canvas>
+        </div>
+      </div>
+
+      <div class="height-container">
+        <h2>Height</h2>
+        <p>Height: <span id="height">{{data["H"]}}</span>m</p>
+        <div class="chart">
+          <canvas id="heigth-chart"></canvas>
+        </div>
       </div>
     </div>
-  </div>
-</body>
+  </body>
+</html>

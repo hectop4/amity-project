@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Caprasimo&display=swap");
+
+* {
+  font-family: Caprasimo, sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: slateblue;
+  width: 100vw;
+  height: 100vh;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 20px;
+  margin-top: 10px;
+}
