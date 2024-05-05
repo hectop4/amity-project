@@ -7,57 +7,42 @@
       rel="stylesheet"
       href="{{url_for('static', filename='css/style.css')}}"
     />
-    <title>Amity</title>
+    <title>Document</title>
   </head>
   <body>
     <h1>Amity</h1>
-    <p>Amity Rover User Interface:.</p>
+
     <div class="dashboard-container">
       <div class="temperature-container">
         <h2>Temperature</h2>
-        <p id="temperature">{{data["T"]}}</p>
-        <div class="chart-container">
+        <p>Temperature: <span id="temperature">{{data["T"]}}</span>°C</p>
+        <div class="chart">
           <canvas id="temperature-chart"></canvas>
         </div>
       </div>
+
       <div class="humidity-container">
         <h2>Humidity</h2>
-        <p id="humidity">{{data["HU"]}}</p>
-        <div class="chart-container">
+        <p>Humidity: <span id="humidity">{{data["HU"]}}</span>%</p>
+        <div class="chart">
           <canvas id="humidity-chart"></canvas>
         </div>
       </div>
+
       <div class="pressure-container">
         <h2>Pressure</h2>
-        <p id="pressure">{{data["P"]}}</p>
-        <div class="chart-container">
+        <p>Pressure: <span id="pressure">{{data["P"]}}</span>hPa</p>
+        <div class="chart">
           <canvas id="pressure-chart"></canvas>
         </div>
       </div>
-      <div class="wind-speed-container">
-        <h2>Wind Speed</h2>
-        <p id="wind-speed">{{data["W"]}}</p>
-        <div class="chart-container">
-          <canvas id="wind-speed-chart"></canvas>
-        </div>
-      </div>
-      <div class="height">
+
+      <div class="height-container">
         <h2>Height</h2>
-        <p id="height">{{data["H"]}}</p>
-        <div class="chart-container">
-          <canvas id="height-chart"></canvas>
+        <p>Height: <span id="height">{{data["H"]}}</span>m</p>
+        <div class="chart">
+          <canvas id="heigth-chart"></canvas>
         </div>
-      </div>
-      <div class="uv">
-        <h2>UV</h2>
-        <p id="uv">{{data["HU"]}}</p>
-        <div class="chart-container">
-          <canvas id="uv-chart"></canvas>
-        </div>
-      </div>
-      <div class="camera">
-        <h2>Camera</h2>
-        <img id="camera" src="" alt="camera" />
       </div>
     </div>
   </body>

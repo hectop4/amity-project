@@ -1,80 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Caprasimo&display=swap");
+
+* {
+  font-family: Caprasimo, sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: rebeccapurple;
-  font-family: "Roboto", sans-serif;
-  color: white;
+  background-color: slateblue;
+  width: 100vw;
+  height: 100vh;
 }
 
-body h1 {
-  color: white;
-  margin: auto;
-  text-align: center;
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
 }
-.dashbord-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+
+canvas {
   width: 100%;
-}
-
-.temperature-container {
-  background-color: purple;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  padding: 20px;
-  width: 300px;
-}
-
-.humidity-container {
-  background-color: purple;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  padding: 20px;
-  width: 300px;
-}
-
-.pressure-container {
-  background-color: purple;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  padding: 20px;
-  width: 300px;
-}
-
-.wind-speed-container {
-  background-color: purple;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  padding: 20px;
-  width: 300px;
-}
-
-.height {
-  background-color: purple;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  padding: 20px;
-  width: 300px;
-}
-.uv {
-  background-color: purple;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  padding: 20px;
-  width: 300px;
-}
-
-.camera {
-  background-color: purple;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  padding: 20px;
-  width: 300px;
+  height: 100%;
+  background-color: white;
+  border-radius: 20px;
+  margin-top: 10px;
 }

@@ -1,6 +1,11 @@
 from flask import Flask, render_template
 import data_generator as dg
+from flask_socketio import send, emit, SocketIO
+
+
 app = Flask(__name__)
+socketio = SocketIO(app)
+
 
 @app.route('/')
 def index():
