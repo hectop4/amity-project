@@ -12,4 +12,7 @@ def generator():
     data_dict['W']=dw
     data_dict['H']=dh
     data_dict['HU']=dhu
+    print(data_dict)
     return data_dict
+
+generator()
