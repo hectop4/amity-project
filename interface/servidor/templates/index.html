@@ -1,9 +1,64 @@
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 offset-lg-2">
-        <h3 class="mt-5">Live Streaming</h3>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/style.css')}}"
+    />
+    <title>Amity</title>
+  </head>
+  <body>
+    <h1>Amity</h1>
+    <p>Amity Rover User Interface:.</p>
+    <div class="dashboard-container">
+      <div class="temperature-container">
+        <h2>Temperature</h2>
+        <p id="temperature">{{data["T"]}}</p>
+        <div class="chart-container">
+          <canvas id="temperature-chart"></canvas>
+        </div>
+      </div>
+      <div class="humidity-container">
+        <h2>Humidity</h2>
+        <p id="humidity">{{data["HU"]}}</p>
+        <div class="chart-container">
+          <canvas id="humidity-chart"></canvas>
+        </div>
+      </div>
+      <div class="pressure-container">
+        <h2>Pressure</h2>
+        <p id="pressure">{{data["P"]}}</p>
+        <div class="chart-container">
+          <canvas id="pressure-chart"></canvas>
+        </div>
+      </div>
+      <div class="wind-speed-container">
+        <h2>Wind Speed</h2>
+        <p id="wind-speed">{{data["W"]}}</p>
+        <div class="chart-container">
+          <canvas id="wind-speed-chart"></canvas>
+        </div>
+      </div>
+      <div class="height">
+        <h2>Height</h2>
+        <p id="height">{{data["H"]}}</p>
+        <div class="chart-container">
+          <canvas id="height-chart"></canvas>
+        </div>
+      </div>
+      <div class="uv">
+        <h2>UV</h2>
+        <p id="uv">{{data["HU"]}}</p>
+        <div class="chart-container">
+          <canvas id="uv-chart"></canvas>
+        </div>
+      </div>
+      <div class="camera">
+        <h2>Camera</h2>
+        <img id="camera" src="" alt="camera" />
       </div>
     </div>
-  </div>
-</body>
+  </body>
+</html>
