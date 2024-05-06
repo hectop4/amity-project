@@ -5,6 +5,11 @@
 uint8_t broadcastAddress[] = {0x94, 0xE6, 0x86, 0x3D, 0x82, 0xCC};
 //94:E6:86:3D:82:CC
 
+//This MAC is C8:C9:A3:D0:92:E4
+// Define variables to store incoming readings
+float incomingTemp;
+float incomingHum;
+float incomingPres;
 // Structure example to send data
 // Must match the receiver structure
 typedef struct struct_message {
@@ -12,8 +17,18 @@ typedef struct struct_message {
 
 } struct_message;
 
+typedef struct struct_sens {
+  float temp;
+  float hum;
+  float press;
+  float alt;
+
+} struct_sens;
+
 // Create a struct_message called myData
 struct_message myData;
+
+struct_sens incomingReadings;
 
 esp_now_peer_info_t peerInfo;
 
@@ -22,7 +37,15 @@ void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
   Serial.print("\r\nLast Packet Send Status:\t");
   Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
 }
- 
+void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
+  memcpy(&incomingReadings, incomingData, sizeof(incomingReadings));
+  Serial.print("Bytes received: ");
+  Serial.println(len);
+  incomingTemp = incomingReadings.temp;
+  incomingHum = incomingReadings.hum;
+  incomingPres = incomingReadings.press;
+}
+
 void setup() {
   // Init Serial Monitor
   Serial.begin(115200);

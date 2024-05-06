@@ -2,20 +2,23 @@
 
 ## Overview
 
-This repository contains the development project for a space exploration rover designed to address challenges in agricultural management and data analysis. The rover integrates advanced technologies in robotics, data science, and telematics to optimize resource management and enhance crop monitoring capabilities in remote or inaccessible agricultural areas.
+Welcome to the amity-project repository presenting the prototype for a Rover developed at Universidad Pedagogica y Tecnologica de Colombia (UPTC) by the electronic engineering team. The purpose of this project is to create a Rover capable of exploring unknown environments.
 
-## Key Features
+## Technologies Used
 
-- **Autonomous Navigation**: The rover is equipped with autonomous navigation capabilities, allowing it to explore and traverse remote agricultural areas with minimal human intervention.
-- **Data Collection**: Integrated sensors collect real-time data on soil moisture, environmental conditions, and crop health, providing valuable insights for agricultural management.
-- **Intelligent Data Analysis**: Advanced algorithms analyze collected data to identify patterns, trends, and anomalies, supporting decision-making processes for farmers and agricultural professionals.
-- **Telematics Functionality**: The rover features telematics functionality for remote communication and control, enabling users to monitor and interact with the rover from anywhere.
-- **User Interface**: A user-friendly interface provides intuitive access to collected data, visualization tools, and analysis results, empowering users to make informed decisions.
+- **ESP32**: The ESP32 microcontroller is the core of the Rover's hardware, providing processing power and connectivity capabilities.
+- **Python**: Python programming language is utilized for developing the software components of the Rover, enabling easy integration and flexibility.
+- **Linux**: The Rover's operating system is based on Linux, providing a stable and customizable platform for running the software stack.
 
-## Objective
+## Installation
 
-The main objective of this project is to develop a versatile and efficient solution for agricultural management that leverages the capabilities of space exploration technology. By providing farmers and agricultural professionals with access to real-time data and actionable insights, the rover aims to improve productivity, optimize resource utilization, and enhance sustainability in agriculture.
+To install the required Python libraries for this project, simply use the following command:
 
-## License
+```bash
+pip install -r requirements.txt
+```
 
-This work is licensed under a Creative Commons Attribution 4.0 International License. See the [LICENSE.md](LICENSE.md) file for details.
+This will install all the necessary dependencies listed in the `requirements.txt` file, ensuring that the project can be run smoothly on your system.
+
+**Hardware_Code** Contains the code in the ESP32 to open with PlatformIO
+**Interface** Contains the Human-Machine Interface

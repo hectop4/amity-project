@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <esp_now.h>
 #include <WiFi.h>
+#include <ESP32Servo.h>
 #define led 2
 //Motor Pins
 
@@ -12,6 +13,17 @@
 #define in6 32
 #define in7 12
 #define in8 13
+
+//Stepper Pins
+#define STEP 2
+#define DIR 4
+
+//Servo Pins
+#define Servo1 5
+#define Servo2 18
+
+Servo servo1;
+Servo servo2;
 
 //Motor Functions
 
@@ -107,7 +119,15 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
     /* code */
     stop();
     break;
-  
+
+  case 'c':
+  servo1.write(0);
+  servo2.write(0);
+    break;
+  case 'd':
+  servo1.write(180);
+  servo2.write(180);
+    break;
   default:
   stop();
     break;
@@ -139,6 +159,9 @@ void setup() {
   pinMode(in6, OUTPUT);
   pinMode(in7, OUTPUT);
   pinMode(in8, OUTPUT);
+  servo1.attach(Servo1);
+  servo2.attach(Servo2);
+
 
   stop();
 
@@ -166,4 +189,35 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  if(Serial.available()>0){
+    char c = Serial.read();
+    Serial.println(c);
+    switch (c)
+    {
+    case 'f':
+      /* code */
+      forward();
+      break;
+    case 'b':
+      /* code */
+      backward();
+      break;
+    case 'l':
+      /* code */
+      left();
+      break;
+    case 'r':
+      /* code */
+      right();
+      break;
+    case 's':
+      /* code */
+      stop();
+      break;
+    
+    default:
+    stop();
+      break;
+    }
+  }
 }
