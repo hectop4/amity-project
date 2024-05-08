@@ -91,60 +91,64 @@ struct_message data;
 void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
    
 
-  memcpy(&data, incomingData, sizeof(data));
-  Serial.print("Bytes received: ");
-  Serial.println(len);
-  Serial.print("Char: ");
-  Serial.println(data.a);
+  // memcpy(&data, incomingData, sizeof(data));
+  // Serial.print("Bytes received: ");
+  // Serial.println(len);
+  // Serial.print("Char: ");
+  // Serial.println(data.a);
 
-  switch (data.a[0])
-  {
-  case 'f':
-    /* code */
-    forward();
-    break;
-  case 'b':
-    /* code */
-    backward();
-    break;
-  case 'l':
-    /* code */
-    left();
-    break;
-  case 'r':
-    /* code */
-    right();
-    break;
-  case 's':
-    /* code */
-    stop();
-    break;
+  // switch (data.a[0])
+  // {
+  // case 'f':
+  //   /* code */
+  //   forward();
+  //   break;
+  // case 'b':
+  //   /* code */
+  //   backward();
+  //   break;
+  // case 'l':
+  //   /* code */
+  //   left();
+  //   break;
+  // case 'r':
+  //   /* code */
+  //   right();
+  //   break;
+  // case 's':
+  //   /* code */
+  //   stop();
+  //   break;
 
-  case 'c':
-  servo1.write(0);
-  servo2.write(0);
-    break;
-  case 'd':
-  servo1.write(180);
-  servo2.write(180);
-    break;
-  default:
-  stop();
-    break;
-  }
+  // case 'c':
+  // servo1.write(0);
+  // servo2.write(0);
   
-  if(data.a[0]=='o'){
-    digitalWrite(led, HIGH);
-  }
-  else{
-    digitalWrite(led, LOW);
-  }
+  
+  //   break;
+  // case 'd':
+  // servo1.write(180);
+  // servo2.write(180);
+  
+  //   break;
 
-   if (esp_now_init() != ESP_OK) {
-    Serial.println("Error initializing ESP-NOW");
-    stop();
-    return;
-  }
+  // default:
+  // stop();
+  //   break;
+  // }
+  
+  // if(data.a[0]=='o'){
+  //   digitalWrite(led, HIGH);
+  // }
+  // else{
+  //   digitalWrite(led, LOW);
+  // }
+
+  //  if (esp_now_init() != ESP_OK) {
+  //   Serial.println("Error initializing ESP-NOW");
+  //   stop();
+  //   return;
+  // }
 
 }
 
@@ -193,31 +197,55 @@ void loop() {
     char c = Serial.read();
     Serial.println(c);
     switch (c)
-    {
-    case 'f':
-      /* code */
-      forward();
-      break;
-    case 'b':
-      /* code */
-      backward();
-      break;
-    case 'l':
-      /* code */
-      left();
-      break;
-    case 'r':
-      /* code */
-      right();
-      break;
-    case 's':
-      /* code */
-      stop();
-      break;
-    
-    default:
+  {
+  case 'f':
+    /* code */
+    forward();
+    break;
+  case 'b':
+    /* code */
+    backward();
+    break;
+  case 'l':
+    /* code */
+    left();
+    break;
+  case 'r':
+    /* code */
+    right();
+    break;
+  case 's':
+    /* code */
     stop();
-      break;
-    }
+    break;
+
+  case 'c':
+  servo1.write(0);
+  servo2.write(0);
+  
+  
+    break;
+  case 'd':
+  servo1.write(180);
+  servo2.write(180);
+
+  digitalWrite(DIR, HIGH);
+  for(int x = 0; x < 200; x++) {
+    digitalWrite(STEP,HIGH);
+    delayMicroseconds(1000);
+    digitalWrite(STEP,LOW);
+    delayMicroseconds(1000);
   }
+    break;
+
+    case 'o':
+        digitalWrite(led, HIGH);
+        break;
+  default:
+  stop();
+  digitalWrite(led, LOW);
+  
+    break;
+  }
+}
 }
