@@ -1,10 +1,9 @@
 from flask import Flask, render_template
 import data_generator as dg
-from flask_socketio import send, emit, SocketIO
+
 
 
 app = Flask(__name__)
-socketio = SocketIO(app)
 
 
 @app.route('/')
@@ -13,6 +12,6 @@ def index():
 
 if __name__ == '__main__':
     print(dg.generator())
-    app.run('127.0.0.1',5000,debug=True)
+    app.run('localhost',5000,debug=True)
 
     
