@@ -5,10 +5,13 @@
 #include <DHT.h>
 #include <DHT_U.h>
 #include <SPI.h>
+#include <string.h>
 
 #define DHTPIN 15
 #define DHTTYPE DHT22
 DHT dht(DHTPIN, DHTTYPE);
+
+String message="";
 
 Adafruit_BMP085 bmp;
 
@@ -25,24 +28,10 @@ void setup() {
 }
 
 void loop() {
-  Serial.print(F("T:"));
-  Serial.print(bmp.readTemperature());
 
-  Serial.print(F("P:"));
-  Serial.print(bmp.readPressure());
+  //full message
+  message = "T:" + String(bmp.readTemperature()) + ",P:" + String(bmp.readPressure()) + ",H:" + String(bmp.readAltitude()) + ",Hu:" + String(dht.readHumidity()) + ",T2:" + String(dht.readTemperature());
+Serial.println(message);
 
-
-  Serial.print(F("H:"));
-  Serial.print(bmp.readAltitude());
-
-
-  Serial.print(F("Hu:"));
-  Serial.print(dht.readHumidity());
-
-
-  Serial.print(F("T2:"));
-  Serial.println(dht.readTemperature());
-
-
-  delay(2000);
+  delay(100);
 }
