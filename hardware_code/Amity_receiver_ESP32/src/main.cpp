@@ -25,6 +25,8 @@
 Servo servo1;
 Servo servo2;
 
+int servo_pos=0;
+
 //Motor Functions
 
 void forward(){
@@ -220,25 +222,24 @@ void loop() {
     break;
 
   case 'c':
-  servo1.write(0);
-  servo2.write(0);
+  if(servo_pos>180){
+  servo_pos=180;
+  }
+  servo_pos++;
+  servo1.write(servo_pos);
+  servo2.write(servo_pos);
   
   
     break;
   case 'd':
-  servo1.write(180);
-  servo2.write(180);
-
-  digitalWrite(DIR, HIGH);
-  for(int x = 0; x < 200; x++) {
-    digitalWrite(STEP,HIGH);
-    delayMicroseconds(1000);
-    digitalWrite(STEP,LOW);
-    delayMicroseconds(1000);
+  servo_pos--;
+  if(servo_pos<0){
+  servo_pos=0;
   }
-    break;
+  servo1.write(servo_pos);
+  servo2.write(servo_pos);
 
-    case 'o':
+  case 'o':
         digitalWrite(led, HIGH);
         break;
   default:

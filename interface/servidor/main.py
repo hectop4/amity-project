@@ -9,15 +9,15 @@ import serial_reader as sr
 import serial_writer as sw
 from camera import Camera
 
+
 app = Flask(__name__)
 socketio = SocketIO(app)
 camera = Camera()
 
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-
-@app.route('/' , methods=['GET', 'POST'])
-def main():
-    return render_template('index.html', data=dg.generator())
 
 @app.route('/data', methods=['GET', 'POST'])
 def data():
@@ -89,10 +89,12 @@ def generate_frames():
 def video_feed():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
+
 if __name__ == '__main__':
     print(dg.generator())
 
     print(sr.read_serial())
+  
     app.run(host='0.0.0.0',port=5500,threaded=True,debug=True)
 
     

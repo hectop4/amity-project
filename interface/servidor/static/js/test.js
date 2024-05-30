@@ -2,6 +2,150 @@ var chart;
 var chart2;
 var mycharts;
 
+$("#forward").on("touchstart", function () {
+  // Code to execute when the forward button is pressed
+  // Enviar una solicitud POST al servidor Flask
+  fetch("/action", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ key: "f" }), // Enviar la letra 'f' como JSON al servidor
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log('Se envió la letra "f" al servidor.');
+      } else {
+        console.error('Error al enviar la letra "f" al servidor.');
+      }
+    })
+    .catch((error) => {
+      console.error("Error de red:", error);
+    });
+});
+
+$("#left").on("touchstart", function () {
+  fetch("/action", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ key: "l" }), // Enviar la letra 'f' como JSON al servidor
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log('Se envió la letra "l" al servidor.');
+      } else {
+        console.error('Error al enviar la letra "l" al servidor.');
+      }
+    })
+    .catch((error) => {
+      console.error("Error de red:", error);
+    });
+});
+
+$("#right").on("touchstart", function () {
+  fetch("/action", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ key: "r" }), // Enviar la letra 'f' como JSON al servidor
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log('Se envió la letra "r" al servidor.');
+      } else {
+        console.error('Error al enviar la letra "r" al servidor.');
+      }
+    })
+    .catch((error) => {
+      console.error("Error de red:", error);
+    });
+});
+
+$("#backward").on("touchstart", function () {
+  fetch("/action", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ key: "b" }), // Enviar la letra 'f' como JSON al servidor
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log('Se envió la letra "b" al servidor.');
+      } else {
+        console.error('Error al enviar la letra "b" al servidor.');
+      }
+    })
+    .catch((error) => {
+      console.error("Error de red:", error);
+    });
+});
+
+$(".control-button").on("touchend", function () {
+  fetch("/action", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ key: "s" }), // Enviar la letra 's' como JSON al servidor
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log('Se envió la letra "s" al servidor.');
+      } else {
+        console.error('Error al enviar la letra "s" al servidor.');
+      }
+    })
+    .catch((error) => {
+      console.error("Error de red:", error);
+    });
+});
+$("#servo-right").on("touchstart", function () {
+  fetch("/action", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ key: "z" }), // Enviar la letra 's' como JSON al servidor
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log('Se envió la letra "z" al servidor.');
+      } else {
+        console.error('Error al enviar la letra "z" al servidor.');
+      }
+    })
+    .catch((error) => {
+      console.error("Error de red:", error);
+    });
+});
+
+$("#servo-left").on("touchstart", function () {
+  fetch("/action", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ key: "x" }), // Enviar la letra 's' como JSON al servidor
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log('Se envió la letra "s" al servidor.');
+      } else {
+        console.error('Error al enviar la letra "s" al servidor.');
+      }
+    })
+    .catch((error) => {
+      console.error("Error de red:", error);
+    });
+});
+
+// Code to execute when the forward button is pressed
+// Enviar una solicitud POST al servidor Flask
+
 document.addEventListener("keydown", function (event) {
   if (event.key === "w") {
     // Enviar una solicitud POST al servidor Flask
